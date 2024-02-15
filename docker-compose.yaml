@@ -1,0 +1,41 @@
+version: '2'
+services:
+  website:
+    container_name: team4project 
+    network_mode: bridge
+    build:
+      context: ./
+    # environment:
+    #   - DB_CONNECTION=mysql
+    #   - DB_HOST=mysql
+    #   - DB_PORT=3306
+    #   - DB_DATABASE=MiltonBank
+    #   - DB_USERNAME=dbuser
+    #   - DB_PASSWORD=dbpass
+    volumes:
+      - ~/Documents/team4Project/team4Project:/www
+    ports:
+      - "41062:80"
+      - "41061:22"
+  #   links:
+  #     - mysql
+  #   depends_on:
+  #     - mysql
+
+  # mysql:
+  #   image: mysql:5.7
+  #   network_mode: bridge
+  #   container_name: mysql-team4project
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_ROOT_HOST: "%"
+  #     MYSQL_DATABASE: banking_system_db
+  #     MYSQL_USER: dbuser
+  #     MYSQL_PASSWORD: dbpass
+  #     MY_SQL_ALLOW_EMPTY_PASSWORD: 1
+  #   healthcheck:
+  #     # test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+  #     retries: 3
+  #     timeout: 5s
+  #   ports:
+  #     - '${FORWARD_DB_PORT:-3306}:3306'
